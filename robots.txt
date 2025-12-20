@@ -1,0 +1,31 @@
+# robots.txt pour DynaScrib
+
+User-agent: *
+Allow: /
+
+# Bloquer les dossiers sensibles
+Disallow: /includes/
+Disallow: /assets/
+Disallow: /*.php$
+
+# Autoriser le CSS et JS pour le rendu
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Sitemap
+Sitemap: https://dynascrib.com/sitemap.xml
+
+# Robots spécifiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquer les mauvais bots (optionnel)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
