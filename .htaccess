@@ -1,0 +1,273 @@
+# ==========================================
+# DYNASCRIB - Configuration Apache
+# ==========================================
+# Ce fichier optimise la sécurité, les performances et le SEO
+
+# ------------------------------------------------------------------------------
+# REDIRECTION HTTPS AUTOMATIQUE
+# ------------------------------------------------------------------------------
+# Force l'utilisation de HTTPS pour sécuriser toutes les connexions
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirection HTTP vers HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # CHOISIR UNE OPTION : www ou non-www
+    # Option 1 : Avec www (décommentez les 2 lignes ci-dessous)
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # Option 2 : Sans www - RECOMMANDÉ (décommentez les 2 lignes ci-dessous)
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# URLS PROPRES (Suppression de l'extension .php)
+# ------------------------------------------------------------------------------
+# Permet d'accéder aux pages sans .php dans l'URL
+# Exemple : /tarifs au lieu de /tarifs.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Empêcher l'accès direct aux fichiers .php (sauf si déjà sans extension)
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.php\ HTTP/
+    RewriteRule ^(.*)\.php$ /$1 [R=301,L]
+
+    # Rediriger vers le fichier .php si la page existe
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# PAGE D'ERREUR PERSONNALISÉE
+# ------------------------------------------------------------------------------
+# Redirige vers la page d'accueil en cas d'erreur 404 (à adapter si vous créez une page 404)
+ErrorDocument 404 /index.php
+ErrorDocument 403 /index.php
+ErrorDocument 500 /index.php
+
+# ------------------------------------------------------------------------------
+# SÉCURITÉ - En-têtes HTTP
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Protection contre le clickjacking (empêche l'intégration dans une iframe)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Protection XSS (Cross-Site Scripting)
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Empêche le navigateur de deviner le type MIME
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Politique de référence (ne pas envoyer de referrer vers des sites externes)
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions restrictives pour les fonctionnalités du navigateur
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+    # HSTS : Force HTTPS pendant 1 an (à activer après avoir vérifié que HTTPS fonctionne)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Content Security Policy (CSP) - Politique de sécurité du contenu
+    # Autorise uniquement les ressources de votre domaine + Google Fonts
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://app.dynascrib.com;"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# BLOCAGE ACCÈS AUX FICHIERS SENSIBLES
+# ------------------------------------------------------------------------------
+# Empêche l'accès direct aux fichiers de configuration et includes
+<FilesMatch "(^\.htaccess|\.md$|\.json$|\.yml$|\.git)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Bloquer l'accès au dossier includes/
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/.*$ - [F,L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# EMPÊCHER L'AFFICHAGE DES RÉPERTOIRES
+# ------------------------------------------------------------------------------
+# Désactive le listing des fichiers dans les dossiers
+Options -Indexes
+
+# ------------------------------------------------------------------------------
+# PROTECTION CONTRE LES INJECTIONS
+# ------------------------------------------------------------------------------
+# Bloque les tentatives d'injection SQL et de scripts malveillants
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bloque les requêtes avec des scripts malveillants
+    RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} GLOBALS(=|[|%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} _REQUEST(=|[|%[0-9A-Z]{0,2}) [OR]
+    RewriteCond %{QUERY_STRING} (base64_encode|base64_decode) [NC,OR]
+    RewriteCond %{QUERY_STRING} (javascript|alert|eval|document\.cookie) [NC,OR]
+    RewriteCond %{QUERY_STRING} (union.*select|insert.*into|drop.*table) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# PERFORMANCES - COMPRESSION GZIP
+# ------------------------------------------------------------------------------
+# Compresse les fichiers pour accélérer le chargement
+<IfModule mod_deflate.c>
+    # Compresser HTML, CSS, JavaScript, texte, XML et polices
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# PERFORMANCES - MISE EN CACHE NAVIGATEUR
+# ------------------------------------------------------------------------------
+# Configure la mise en cache des fichiers statiques pour améliorer les performances
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Cache par défaut : 1 mois
+    ExpiresDefault "access plus 1 month"
+
+    # HTML et PHP : pas de cache (contenu dynamique)
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType application/x-httpd-php "access plus 0 seconds"
+
+    # CSS et JavaScript : 1 semaine
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType text/javascript "access plus 1 week"
+
+    # Images : 1 mois
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+
+    # Polices : 1 an
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+
+    # Fichiers manifeste et XML : 1 semaine
+    ExpiresByType application/xml "access plus 1 week"
+    ExpiresByType text/xml "access plus 1 week"
+    ExpiresByType application/json "access plus 1 week"
+</IfModule>
+
+# En-têtes de cache supplémentaires
+<IfModule mod_headers.c>
+    # Cache pour les fichiers statiques
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|otf|ico)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # Pas de cache pour HTML et PHP
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# ENCODAGE UTF-8
+# ------------------------------------------------------------------------------
+# Force l'encodage UTF-8 pour tous les fichiers texte
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html .css .js .xml .json .txt .php
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# TYPES MIME
+# ------------------------------------------------------------------------------
+# Configure les types MIME pour les fichiers courants
+<IfModule mod_mime.c>
+    # JavaScript
+    AddType application/javascript js
+    AddType application/json json
+
+    # Polices
+    AddType font/woff woff
+    AddType font/woff2 woff2
+    AddType font/ttf ttf
+    AddType font/otf otf
+
+    # Images
+    AddType image/svg+xml svg svgz
+    AddType image/webp webp
+
+    # Autres
+    AddType text/css css
+    AddType application/xml xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# CONFIGURATION PHP (si mod_php est activé)
+# ------------------------------------------------------------------------------
+<IfModule mod_php7.c>
+    # Désactive l'affichage des erreurs en production (à activer en dev)
+    php_flag display_errors Off
+    php_flag display_startup_errors Off
+
+    # Log les erreurs dans un fichier
+    php_flag log_errors On
+
+    # Limite la taille des uploads
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+
+    # Timezone (Europe/Zurich pour la Suisse)
+    php_value date.timezone "Europe/Zurich"
+
+    # Durée de session : 30 minutes
+    php_value session.gc_maxlifetime 1800
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# OPTIMISATIONS SUPPLÉMENTAIRES
+# ------------------------------------------------------------------------------
+# Désactive la signature du serveur Apache (sécurité)
+ServerSignature Off
+
+# Empêche les hotlinks (utilisation de vos images sur d'autres sites)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Autorise votre domaine et les requêtes directes
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?dynascrib\.com [NC]
+    # Bloque uniquement les images (pas les autres ressources)
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp)$ - [F,NC]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# FIN DU FICHIER .htaccess
+# ------------------------------------------------------------------------------
+# Ce fichier est optimisé pour Infomaniak et la plupart des hébergeurs
+# Si vous rencontrez des erreurs 500, contactez votre hébergeur pour vérifier
+# que mod_rewrite, mod_deflate, mod_expires et mod_headers sont activés

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de réception</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        .content {
+            margin: 25px 0;
+        }
+        .content p {
+            margin: 15px 0;
+            line-height: 1.8;
+            color: #1e1b4b;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(236, 72, 153, 0.05));
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #a855f7;
+            margin: 25px 0;
+        }
+        .highlight-box strong {
+            color: #a855f7;
+            font-size: 16px;
+        }
+        .summary-grid {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .summary-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border-left: 3px solid #ec4899;
+        }
+        .summary-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .summary-value {
+            color: #1e1b4b;
+            font-size: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: transform 0.2s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+        .footer a {
+            color: #a855f7;
+            text-decoration: none;
+        }
+        .emoji {
+            font-size: 48px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✅ Message bien reçu !</h1>
+            <p>Merci de nous avoir contactés</p>
+        </div>
+
+        <div class="emoji">👋</div>
+
+        <div class="content">
+            <p>Bonjour <strong>{{name}}</strong>,</p>
+
+            <p>Nous avons bien reçu votre message et nous vous en remercions. Notre équipe va l'examiner et vous répondra dans les plus brefs délais.</p>
+
+            <div class="highlight-box">
+                <strong>⏱️ Délai de réponse habituel :</strong> 24 à 48 heures (jours ouvrés)
+            </div>
+
+            <p><strong>Récapitulatif de votre demande :</strong></p>
+
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-label">Sujet</div>
+                    <div class="summary-value">{{subjectLabel}}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Date d'envoi</div>
+                    <div class="summary-value">{{date}}</div>
+                </div>
+            </div>
+
+            <p>En attendant notre réponse, vous pouvez :</p>
+            <ul style="line-height: 2; color: #1e1b4b;">
+                <li>Découvrir <a href="{{siteUrl}}/tarifs" style="color: #a855f7; text-decoration: none;">nos tarifs</a></li>
+                <li>Consulter notre <a href="{{siteUrl}}/faq" style="color: #a855f7; text-decoration: none;">FAQ</a></li>
+                <li>Essayer gratuitement DynaScrib pendant 30 jours</li>
+            </ul>
+
+            <div style="text-align: center;">
+                <a href="https://app.dynascrib.com/inscription" class="cta-button">Essayer gratuitement 30 jours</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Cet email de confirmation a été envoyé automatiquement.</p>
+            <p><strong>DynaScrib</strong> - Assistant de lecture intelligent</p>
+            <p>
+                <a href="{{siteUrl}}">dynascrib.com</a> |
+                <a href="mailto:{{contactEmail}}">{{contactEmail}}</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 12px; color: #999;">
+                Hébergé en Europe 🇪🇺 | Conforme RGPD
+            </p>
+        </div>
+    </div>
+</body>
+</html>

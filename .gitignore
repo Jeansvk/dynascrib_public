@@ -1,0 +1,33 @@
+# Configuration sensible
+config.php
+
+# Fichiers système Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+
+# Fichiers IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dossiers de dépendances (si vous utilisez Composer)
+/vendor/
+composer.phar
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local

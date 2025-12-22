@@ -1,9 +1,9 @@
 <?php
 // Configuration SEO de la page
-$pageTitle = "Tarifs - DynaScrib | L'assistant de lecture intelligent";
-$pageDescription = "Découvrez nos offres adaptées à tous les besoins : formule individuelle à 9.90 CHF/mois ou formule équipe pour les établissements scolaires. Essai gratuit 30 jours.";
-$pageKeywords = "tarifs dynascrib, prix lecture intelligente, abonnement IA éducation, forfait individuel, forfait école";
-$pageUrl = "https://dynascrib.com/tarifs.php";
+$pageTitle = "DynaScrib - L'assistant de lecture intelligent propulsé par l'IA";
+$pageDescription = "DynaScrib utilise l'IA pour rendre la lecture accessible, fluide et efficace. Synthèse vocale HD, annotations intelligentes, résumés automatiques.";
+$pageKeywords = "lecture intelligente, IA, éducation, accessibilité, PDF, dyslexie, synthèse vocale";
+$pageUrl = "https://dynascrib.com";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,131 +16,191 @@ $pageUrl = "https://dynascrib.com/tarifs.php";
     <div class="bg-decoration bg-decoration-2"></div>
     <div class="bg-decoration bg-decoration-3"></div>
 
+    <!-- Header -->
     <?php include 'includes/header.php'; ?>
 
     <!-- Main Content -->
     <main>
-        <div class="hero-section">
-            <span class="badge">Tarifs simples et transparents</span>
-            <h1>Choisissez votre formule</h1>
-            <p class="subtitle">Des offres adaptées à tous les besoins, de l'utilisateur individuel aux établissements scolaires.</p>
-        </div>
+        <!-- Hero Landing -->
+        <section class="hero-landing">
+            <span class="badge">Propulsé par l'Intelligence Artificielle</span>
+            <h1>Transformez chaque lecture<br>en réussite</h1>
+            <p class="subtitle">DynaScrib utilise l'IA pour rendre la lecture accessible, fluide et efficace. Synthèse vocale HD, annotations intelligentes, résumés automatiques et bien plus encore.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://app.dynascrib.com/inscription" class="cta-button">Essayer gratuitement 30 jours</a>
+                <a href="#comment" class="cta-button cta-secondary">Découvrir comment ça marche</a>
+            </div>
 
-        <div class="pricing-container">
-            <!-- Individual Plan -->
-            <div class="pricing-card recommended">
-                <span class="recommended-badge">Recommandé</span>
-                <div class="card-icon">📄</div>
-                <h2 class="plan-name">Individuel</h2>
-                <p class="plan-description">Pour les familles</p>
+            <div class="trust-line">
+                <span class="trust-item">Hébergé en Europe</span>
+                <span class="trust-item">Conforme RGPD</span>
+                <span class="trust-item">Sans engagement</span>
+                <span class="trust-item">Aucune carte bancaire requise</span>
+            </div>
+        </section>
 
-                <div class="billing-options">
-                    <button class="billing-option">Mensuel</button>
-                    <button class="billing-option active">Annuel</button>
+        <!-- Problem / Solution -->
+        <section class="problem-solution">
+            <div class="section-intro">
+                <span class="section-badge">Le Constat</span>
+                <h2 class="section-title">La lecture ne devrait jamais être un obstacle</h2>
+                <p class="section-description">Trop d'élèves et d'adultes abandonnent face à des documents complexes. DynaScrib change la donne grâce à l'intelligence artificielle.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card comparison-before">
+                    <div class="comparison-header">
+                        <span>😓</span>
+                        <span>Sans DynaScrib</span>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>
+                            <span class="comparison-icon">❌</span>
+                            <span>Lecture lente et difficile des documents PDF</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">❌</span>
+                            <span>Difficulté à comprendre et retenir les informations</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">❌</span>
+                            <span>Outils d'annotation basiques et limités</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">❌</span>
+                            <span>Pas de support pour les troubles d'apprentissage</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">❌</span>
+                            <span>Perte de temps et découragement</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="price">7.50 CHF<span class="price-period">/mois</span></div>
-                <div class="annual-detail" style="display: block;">soit 90 CHF par an</div>
-                
-                <span class="trial-info">30 jours d'essai offerts</span>
+                <div class="comparison-card comparison-after">
+                    <div class="comparison-header">
+                        <span>🚀</span>
+                        <span>Avec DynaScrib</span>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>
+                            <span class="comparison-icon">✅</span>
+                            <span>Lecture assistée par IA avec synthèse vocale HD</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">✅</span>
+                            <span>Résumés automatiques et explications simplifiées</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">✅</span>
+                            <span>Annotations intelligentes et surlignage adaptatif</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">✅</span>
+                            <span>Correction orthographique et export Word</span>
+                        </li>
+                        <li>
+                            <span class="comparison-icon">✅</span>
+                            <span>Autonomie et confiance retrouvées</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                <ul class="features">
-                    <li>Lecture PDF avancée & Vocale HD</li>
-                    <li>Documents illimités</li>
-                    <li>Annotations illimitées</li>
-                    <li>Correction IA & Export Word</li>
-                </ul>
-
-                <button class="cta-button" onclick="window.location.href='https://app.dynascrib.com/inscription'">Essayer gratuitement 30 jours</button>
-                <p class="terms">Pas de prélèvement immédiat • Annulable à tout moment</p>
+        <!-- Features Section -->
+        <section class="features-section" id="fonctionnalites">
+            <div class="section-intro">
+                <span class="section-badge">Fonctionnalités</span>
+                <h2 class="section-title">Tout ce dont vous avez besoin pour lire efficacement</h2>
+                <p class="section-description">DynaScrib combine les dernières technologies d'IA pour vous offrir une expérience de lecture révolutionnaire.</p>
             </div>
 
-            <!-- Team Plan -->
-            <div class="pricing-card">
-                <div class="card-icon">👥</div>
-                <h2 class="plan-name">Équipe</h2>
-                <p class="plan-description">Pour les établissements scolaires et groupes</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">Lecture Intelligente</h3>
+                    <p class="feature-text">L'IA analyse vos documents et adapte l'affichage pour faciliter la lecture. Synthèse vocale HD naturelle en plusieurs langues.</p>
+                </div>
 
-                <div class="price" style="margin-top: 5.5rem; margin-bottom: 1.5rem;">Sur devis</div>
+                <div class="feature-card">
+                    <span class="feature-icon">✍️</span>
+                    <h3 class="feature-title">Annotations Avancées</h3>
+                    <p class="feature-text">Surlignez, annotez, commentez. Vos notes sont intelligemment organisées et toujours accessibles.</p>
+                </div>
 
-                <ul class="features">
-                    <li>Tout de l'offre Individuel</li>
-                    <li>Gestion centralisée des utilisateurs</li>
-                    <li>Tableau de bord administrateur</li>
-                    <li>Formation et Support prioritaire</li>
-                </ul>
+                <div class="feature-card">
+                    <span class="feature-icon">🤖</span>
+                    <h3 class="feature-title">Assistant IA</h3>
+                    <p class="feature-text">Posez des questions sur votre document, obtenez des résumés ou des explications simplifiées instantanément.</p>
+                </div>
 
-                <button class="cta-button secondary" onclick="window.location.href='/demo.php'">Demander une démo</button>
+                <div class="feature-card">
+                    <span class="feature-icon">📝</span>
+                    <h3 class="feature-title">Correction & Export</h3>
+                    <p class="feature-text">Correction orthographique intelligente et export vers Word pour finaliser vos travaux facilement.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">♿</span>
+                    <h3 class="feature-title">Accessibilité</h3>
+                    <p class="feature-text">Conçu pour tous, y compris les personnes dyslexiques ou avec des difficultés de lecture.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">☁️</span>
+                    <h3 class="feature-title">Cloud Sécurisé</h3>
+                    <p class="feature-text">Vos documents stockés en Europe de manière sécurisée, accessibles depuis n'importe quel appareil.</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- How it Works -->
+        <section class="how-section" id="comment">
+            <div class="section-intro">
+                <span class="section-badge">Simple & Efficace</span>
+                <h2 class="section-title">Comment ça marche ?</h2>
+                <p class="section-description">En 3 étapes simples, commencez à lire intelligemment dès aujourd'hui</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Importez votre document</h3>
+                        <p>Glissez-déposez n'importe quel PDF ou document texte. DynaScrib l'analyse instantanément grâce à l'intelligence artificielle.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Lisez avec l'assistance IA</h3>
+                        <p>Profitez de la lecture vocale HD, des résumés automatiques et des explications contextuelles pour mieux comprendre.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Annotez et exportez</h3>
+                        <p>Surlignez les passages importants, ajoutez vos commentaires, posez des questions à l'IA. Exportez le tout vers Word en un clic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta-section">
+            <h2>Prêt à transformer votre lecture ?</h2>
+            <p>Rejoignez des centaines d'utilisateurs qui ont repris confiance en leurs capacités de lecture</p>
+            <a href="https://app.dynascrib.com/inscription" class="cta-button">Essayer gratuitement 30 jours</a>
+            <p class="small-text">Aucune carte bancaire requise • Annulable à tout moment • Support en français</p>
+        </section>
     </main>
 
+    <!-- Footer -->
     <?php include 'includes/footer.php'; ?>
-
-    <script>
-        // Pricing toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const individualCard = document.querySelector('.pricing-card.recommended');
-            const monthlyBtn = individualCard.querySelector('.billing-option:nth-child(1)');
-            const annualBtn = individualCard.querySelector('.billing-option:nth-child(2)');
-            const priceDisplay = individualCard.querySelector('.price');
-            const billingOptions = individualCard.querySelector('.billing-options');
-            
-            // Get or create the annual detail element
-            let annualDetail = individualCard.querySelector('.annual-detail');
-            if (!annualDetail) {
-                annualDetail = document.createElement('div');
-                annualDetail.className = 'annual-detail';
-                annualDetail.style.cssText = 'font-size: 0.875rem; color: #94a3b8; margin-top: 0.5rem; margin-bottom: 1.25rem; font-weight: 500;';
-                priceDisplay.parentNode.insertBefore(annualDetail, priceDisplay.nextSibling);
-            }
-
-            // Create economy info element below toggle
-            let economyInfo = individualCard.querySelector('.economy-info');
-            if (!economyInfo) {
-                economyInfo = document.createElement('div');
-                economyInfo.className = 'economy-info';
-                economyInfo.style.cssText = 'text-align: center; font-size: 0.875rem; color: #15803d; font-weight: 600; margin-top: 0.75rem; margin-bottom: 1.25rem; display: block; background: linear-gradient(135deg, #dcfce7, #bbf7d0); padding: 0.625rem 1rem; border-radius: 12px;';
-                billingOptions.parentNode.insertBefore(economyInfo, billingOptions.nextSibling);
-                economyInfo.innerHTML = '🎉 Économisez 3 mois';
-            }
-            
-            const prices = {
-                monthly: {
-                    display: '9.90 CHF',
-                    detail: ''
-                },
-                annual: {
-                    display: '7.50 CHF',
-                    detail: 'soit 90 CHF par an'
-                }
-            };
-
-            function setActiveButton(activeBtn) {
-                // Remove active class from all buttons
-                monthlyBtn.classList.remove('active');
-                annualBtn.classList.remove('active');
-                
-                // Add active class to clicked button
-                activeBtn.classList.add('active');
-            }
-
-            monthlyBtn.addEventListener('click', function() {
-                setActiveButton(monthlyBtn);
-                priceDisplay.innerHTML = prices.monthly.display + '<span class="price-period">/mois</span>';
-                annualDetail.style.display = 'none';
-                annualDetail.textContent = '';
-                economyInfo.style.display = 'none';
-            });
-
-            annualBtn.addEventListener('click', function() {
-                setActiveButton(annualBtn);
-                priceDisplay.innerHTML = prices.annual.display + '<span class="price-period">/mois</span>';
-                annualDetail.style.display = 'block';
-                annualDetail.textContent = prices.annual.detail;
-                economyInfo.style.display = 'block';
-            });
-        });
-    </script>
 </body>
 </html>
