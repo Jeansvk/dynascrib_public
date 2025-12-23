@@ -31,19 +31,19 @@
                 <h3>Produit</h3>
                 <ul class="footer-links">
                     <li><a href="/tarifs.php">Tarifs</a></li>
-                    <li><a href="/fonctionnalites.php">Fonctionnalités</a></li>
-                    <li><a href="/ecoles.php">Pour les écoles</a></li>
-                    <li><a href="/demo.php">Demander une démo</a></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Fonctionnalités (bientôt)</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Pour les écoles (bientôt)</span></li>
+                    <li><a href="/contact.php">Demander une démo</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
                 <h3>Ressources</h3>
                 <ul class="footer-links">
-                    <li><a href="/guide.php">Guide d'utilisation</a></li>
-                    <li><a href="/faq.php">FAQ</a></li>
-                    <li><a href="/blog.php">Blog</a></li>
-                    <li><a href="/partenaires.php">Espace Partenaires</a></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Guide d'utilisation (bientôt)</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">FAQ (bientôt)</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Blog (bientôt)</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Espace Partenaires (bientôt)</span></li>
                     <li><a href="/contact.php">Nous contacter</a></li>
                 </ul>
             </div>
