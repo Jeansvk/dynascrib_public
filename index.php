@@ -28,7 +28,7 @@ $pageUrl = "https://dynascrib.com";
             <p class="subtitle">DynaScrib utilise l'IA pour rendre la lecture accessible, fluide et efficace. Synthèse vocale HD, annotations intelligentes, résumés automatiques et bien plus encore.</p>
             
             <div class="cta-buttons">
-                <a href="https://app.dynascrib.com/inscription" class="cta-button">Essayer gratuitement 30 jours</a>
+                <a href="https://app.dynascrib.com/login" class="cta-button">Essayer gratuitement 30 jours</a>
                 <a href="#comment" class="cta-button cta-secondary">Découvrir comment ça marche</a>
             </div>
 
@@ -195,7 +195,7 @@ $pageUrl = "https://dynascrib.com";
         <section class="final-cta-section">
             <h2>Prêt à transformer votre lecture ?</h2>
             <p>Rejoignez des centaines d'utilisateurs qui ont repris confiance en leurs capacités de lecture</p>
-            <a href="https://app.dynascrib.com/inscription" class="cta-button">Essayer gratuitement 30 jours</a>
+            <a href="https://app.dynascrib.com/login" class="cta-button">Essayer gratuitement 30 jours</a>
             <p class="small-text">Aucune carte bancaire requise • Annulable à tout moment • Support en français</p>
         </section>
     </main>

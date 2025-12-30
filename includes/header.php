@@ -1,3 +1,11 @@
+<!-- Development Banner -->
+<div class="dev-banner">
+    <div class="dev-banner-content">
+        <span class="dev-banner-icon">🚧</span>
+        <span class="dev-banner-text">Site en cours de développement - Certaines pages arrivent bientôt</span>
+    </div>
+</div>
+
 <!-- Header -->
 <header>
     <div class="header-content">
@@ -23,7 +31,7 @@
             <a href="/contact.php">Contact</a>
             <div class="nav-buttons">
                 <a href="https://app.dynascrib.com/connexion" class="btn-connexion">Connexion</a>
-                <a href="https://app.dynascrib.com/inscription" class="btn-inscription">Inscription</a>
+                <a href="https://app.dynascrib.com/login" class="btn-inscription">Inscription</a>
             </div>
         </nav>
     </div>

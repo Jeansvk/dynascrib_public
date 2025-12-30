@@ -152,7 +152,7 @@ Délai de réponse habituel : 24 à 48 heures (jours ouvrés)
 En attendant notre réponse :
 - Découvrez nos tarifs : $siteUrl/tarifs
 - Consultez notre FAQ : $siteUrl/faq
-- Essayez gratuitement : https://app.dynascrib.com/inscription
+- Essayez gratuitement : https://app.dynascrib.com/login
 
 ---
 DynaScrib - Assistant de lecture intelligent

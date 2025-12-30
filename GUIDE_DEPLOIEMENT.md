@@ -86,7 +86,7 @@ Utilisez `_TEMPLATE_page.php` pour créer :
 Dans `/includes/header.php`, changez :
 ```php
 <a href="https://app.dynascrib.com/connexion" class="btn-connexion">Connexion</a>
-<a href="https://app.dynascrib.com/inscription" class="btn-inscription">Inscription</a>
+<a href="https://app.dynascrib.com/login" class="btn-inscription">Inscription</a>
 ```
 
 Par vos vraies URLs quand l'app sera prête.

@@ -51,7 +51,7 @@ $pageUrl = "https://dynascrib.com/tarifs.php";
                     <li>Correction IA & Export Word</li>
                 </ul>
 
-                <button class="cta-button" onclick="window.location.href='https://app.dynascrib.com/inscription'">Essayer gratuitement 30 jours</button>
+                <button class="cta-button" onclick="window.location.href='https://app.dynascrib.com/login'">Essayer gratuitement 30 jours</button>
                 <p class="terms">Pas de prélèvement immédiat • Annulable à tout moment</p>
             </div>
 
