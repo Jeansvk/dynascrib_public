@@ -4,21 +4,7 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <div class="footer-logo-container">
-                    <svg class="footer-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-                        <defs>
-                            <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#a855f7"/>
-                                <stop offset="50%" style="stop-color:#ec4899"/>
-                                <stop offset="100%" style="stop-color:#f97316"/>
-                            </linearGradient>
-                        </defs>
-                        <rect width="32" height="32" rx="8" fill="url(#footerGradient)"/>
-                        <path d="M10 8h8l4 4v12a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <polyline points="18 8 18 12 22 12" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <line x1="11" y1="17" x2="21" y2="17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                        <line x1="11" y1="21" x2="17" y2="21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                    <span class="footer-brand-name">DynaScrib</span>
+                    <img src="/assets/images/dynascrib-logo-inverse.svg" alt="DynaScrib" class="footer-logo" style="height: 41px; width: auto;">
                 </div>
                 <p class="footer-description">Facilitez la lecture pour tous grâce à l'intelligence artificielle. Une solution innovante pour l'éducation et l'accessibilité.</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
@@ -31,8 +17,8 @@
                 <h3>Produit</h3>
                 <ul class="footer-links">
                     <li><a href="/tarifs.php">Tarifs</a></li>
-                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Fonctionnalités (bientôt)</span></li>
-                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Pour les écoles (bientôt)</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Fonctionnalités</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Pour les écoles</span></li>
                     <li><a href="/contact.php">Demander une démo</a></li>
                 </ul>
             </div>
@@ -40,10 +26,10 @@
             <div class="footer-column">
                 <h3>Ressources</h3>
                 <ul class="footer-links">
-                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Guide d'utilisation (bientôt)</span></li>
-                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">FAQ (bientôt)</span></li>
-                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Blog (bientôt)</span></li>
-                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Espace Partenaires (bientôt)</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Guide d'utilisation</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">FAQ</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Blog</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Espace Partenaires</span></li>
                     <li><a href="/contact.php">Nous contacter</a></li>
                 </ul>
             </div>
@@ -51,10 +37,10 @@
             <div class="footer-column">
                 <h3>Légal</h3>
                 <ul class="footer-links">
-                    <li><a href="/mentions-legales.php">Mentions Légales</a></li>
-                    <li><a href="/cgv.php">CGV / CGU</a></li>
-                    <li><a href="/confidentialite.php">Confidentialité</a></li>
-                    <li><a href="/cookies.php">Cookies</a></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Mentions Légales</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">CGV / CGU</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Confidentialité</span></li>
+                    <li><span style="color: #64748b; cursor: not-allowed; opacity: 0.5;">Cookies</span></li>
                 </ul>
             </div>
         </div>
